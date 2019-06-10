@@ -1,0 +1,14 @@
+<p><%= @post1.title %></p>
+<p><%= simple_format(@post1.body) %></p>
+<p>コメント</p>
+<%= form_for([@post1, @post1.comments.build]) do |f| %>
+  <p><%= f.text_field :body, placeholder: "コメントを入力してください。" %></p>
+  <p><%= f.submit "コメントする" %></p>
+<% end %>
+<% if @post2.comments.any? %>
+<ul>
+<% @post2.comments.each do |t| %>
+<li><%= t.body %></li>
+<% end %>
+</ul>
+<% end %>
