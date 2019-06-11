@@ -3,5 +3,7 @@
 <%= form_for(@post) do |f| %>
   <p><%= f.text_field :title, placeholder: "タイトルを入力してください。" %></p>
   <p><%= f.text_area :body, placeholder: "内容を入力してください。" %></p>
+  <p><%= image_tag @post.image.url %></p>
+  <p>画像を更新<%= f.file_field :image %></p>
   <p><%= f.submit "投稿する" %></p>
 <% end %>
