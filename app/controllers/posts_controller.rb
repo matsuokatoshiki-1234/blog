@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = User.find(current_user.id).posts.order(created_at: "DESC")
+    @posts = User.find(current_user.id).posts.order(created_at: "DESC").page(params[:page]).per(10)
   end
 
   def show

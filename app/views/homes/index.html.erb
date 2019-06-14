@@ -1,11 +1,12 @@
 <p class="text-right"><%= link_to "記事を作成する", new_post_path, class: "btn btn-primary" %></p>
 <p class="text-right"><%= link_to "マイページに移動する", posts_path, class: "btn btn-primary" %></p>
 <% if @posts.any? %>
-<div class="list-group">
+<div class="list-group mb-3">
 <% @posts.each do |t| %>
   <%= link_to t.title, home_path(t.id), class: "list-group-item list-group-item-action" %>
 <% end %>
 </div>
+<%= paginate @posts %>
 <% else %>
 <p class="text-center">表示できる記事がありません。</p>
 <% end %>
