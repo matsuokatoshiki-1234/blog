@@ -1,15 +1,15 @@
-<p><%= @post1.title %></p>
+<h2><%= @post1.title %></h2>
 <p><%= simple_format(@post1.body) %></p>
-<p><%= image_tag @post1.image.url %></p>
+<p><%= image_tag @post1.image.url, class: "mw-100" %></p>
 <p>コメント</p>
 <%= form_for([@post1, @post1.comments.build]) do |f| %>
-  <p><%= f.text_field :body, placeholder: "コメントを入力してください。" %></p>
-  <p><%= f.submit "コメントする" %></p>
+  <p><%= f.text_field :body, placeholder: "コメントを入力してください。", class: "form-control" %></p>
+  <p><%= f.submit "コメントする", class: "btn btn-primary" %></p>
 <% end %>
 <% if @post2.comments.any? %>
-<ul>
-<% @post2.comments.each do |t| %>
-<li><%= t.body %></li>
-<% end %>
+<ul class="list-group list-group-flush">
+  <% @post2.comments.each do |t| %>
+  <li class="list-group-item"><%= t.body %></li>
+  <% end %>
 </ul>
 <% end %>

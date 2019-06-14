@@ -1,11 +1,11 @@
-<p><%= link_to "記事を作成する", new_post_path %></p>
-<p><%= link_to "マイページに移動する", posts_path %></p>
+<p class="text-right"><%= link_to "記事を作成する", new_post_path, class: "btn btn-primary" %></p>
+<p class="text-right"><%= link_to "マイページに移動する", posts_path, class: "btn btn-primary" %></p>
 <% if @posts.any? %>
-<ul>
+<div class="list-group">
 <% @posts.each do |t| %>
-<li><%= link_to t.title, home_path(t.id) %></li>
+  <%= link_to t.title, home_path(t.id), class: "list-group-item list-group-item-action" %>
 <% end %>
-</ul>
+</div>
 <% else %>
-<p>表示できる記事がありません。</p>
+<p class="text-center">表示できる記事がありません。</p>
 <% end %>

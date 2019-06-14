@@ -1,9 +1,19 @@
-<p>編集</p>
-
+<h2>編集</h2>
 <%= form_for(@post) do |f| %>
-  <p><%= f.text_field :title, placeholder: "タイトルを入力してください。" %></p>
-  <p><%= f.text_area :body, placeholder: "内容を入力してください。" %></p>
-  <p><%= image_tag @post.image.url %></p>
-  <p>画像を更新<%= f.file_field :image %></p>
-  <p><%= f.submit "投稿する" %></p>
+  <div class="form-group">
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title, placeholder: "タイトルを入力してください。", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body, "内容" %>
+    <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control", size: "20x10" %>
+  </div>
+  <div class="form-group">
+    <p><%= image_tag @post.image.url, class: "mw-100" %></p>
+    <%= f.label :image, "画像" %>
+    <%= f.file_field :image, class: "form-control-file" %>
+　 </div>
+  <div class="form-group">
+    <%= f.submit "投稿する", class: "btn btn-primary" %>
+　</div>
 <% end %>
