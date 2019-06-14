@@ -4,9 +4,9 @@
 <p>コメント</p>
 <%= form_for([@post1, @post1.comments.build]) do |f| %>
   <p>
-    <%= f.text_field :body, placeholder: "コメントを入力してください。", class: "form-control #{@comment.errors.messages[:body].any? ? 'is-invalid' : ''}" %>
-    <% if @comment.errors.messages[:body].any? %>
-      <% @comment.errors.messages[:body].each do |error| %>
+    <%= f.text_field :body, placeholder: "コメントを入力してください。", class: "form-control #{@comment.errors.full_messages_for(:body).any? ? 'is-invalid' : ''}" %>
+    <% if @comment.errors.full_messages_for(:body).any? %>
+      <% @comment.errors.full_messages_for(:body).each do |error| %>
         <div>
           <small class="text-danger font-weight-bold">
             <%= error %>

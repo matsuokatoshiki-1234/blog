@@ -2,9 +2,9 @@
 <%= form_for(@post) do |f| %>
   <div class="form-group">
     <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title, placeholder: "タイトルを入力してください。", class: "form-control #{@post.errors.messages[:title].any? ? 'is-invalid' : ''}" %>
-    <% if @post.errors.messages[:title].any? %>
-      <% @post.errors.messages[:title].each do |error| %>
+    <%= f.text_field :title, placeholder: "タイトルを入力してください。", class: "form-control #{@post.errors.full_messages_for(:title).any? ? 'is-invalid' : ''}" %>
+    <% if @post.errors.full_messages_for(:title).any? %>
+      <% @post.errors.full_messages_for(:title).each do |error| %>
         <div>
           <small class="text-danger font-weight-bold">
             <%= error %>
@@ -15,9 +15,9 @@
   </div>
   <div class="form-group">
     <%= f.label :body, "内容" %>
-    <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.messages[:body].any? ? 'is-invalid' : ''}", size: "20x10" %>
-    <% if @post.errors.messages[:body].any? %>
-      <% @post.errors.messages[:body].each do |error| %>
+    <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.full_messages_for(:body).any? ? 'is-invalid' : ''}", size: "20x10" %>
+    <% if @post.errors.full_messages_for(:body).any? %>
+      <% @post.errors.full_messages_for(:body).each do |error| %>
         <div>
           <small class="text-danger font-weight-bold">
             <%= error %>
@@ -29,8 +29,8 @@
   <div class="form-group">
     <%= f.label :image, "画像" %>
     <%= f.file_field :image, class: "form-control-file" %>
-    <% if @post.errors.messages[:image].any? %>
-      <% @post.errors.messages[:image].each do |error| %>
+    <% if @post.errors.full_messages_for(:image).any? %>
+      <% @post.errors.full_messages_for(:image).each do |error| %>
         <div>
           <small class="text-danger font-weight-bold">
             <%= error %>
