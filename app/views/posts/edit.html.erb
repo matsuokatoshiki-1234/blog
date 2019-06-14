@@ -2,16 +2,43 @@
 <%= form_for(@post) do |f| %>
   <div class="form-group">
     <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title, placeholder: "タイトルを入力してください。", class: "form-control" %>
+    <%= f.text_field :title, placeholder: "タイトルを入力してください。", class: "form-control #{@post.errors.messages[:title].any? ? 'is-invalid' : ''}" %>
+    <% if @post.errors.messages[:title].any? %>
+      <% @post.errors.messages[:title].each do |error| %>
+        <div>
+          <small class="text-danger font-weight-bold">
+            <%= error %>
+          </small>
+        </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= f.label :body, "内容" %>
-    <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control", size: "20x10" %>
+    <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.messages[:body].any? ? 'is-invalid' : ''}", size: "20x10" %>
+    <% if @post.errors.messages[:body].any? %>
+      <% @post.errors.messages[:body].each do |error| %>
+        <div>
+          <small class="text-danger font-weight-bold">
+            <%= error %>
+          </small>
+        </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="form-group">
-    <p><%= image_tag @post.image.url, class: "mw-100" %></p>
     <%= f.label :image, "画像" %>
+    <p><%= image_tag @post.image.url, class: "mw-100" %></p>
     <%= f.file_field :image, class: "form-control-file" %>
+    <% if @post.errors.messages[:image].any? %>
+      <% @post.errors.messages[:image].each do |error| %>
+        <div>
+          <small class="text-danger font-weight-bold">
+            <%= error %>
+          </small>
+        </div>
+      <% end %>
+    <% end %>
 　 </div>
   <div class="form-group">
     <%= f.submit "投稿する", class: "btn btn-primary" %>

@@ -16,8 +16,11 @@ class PostsController < ApplicationController
 
   def create
     @post = User.find(current_user.id).posts.new(post_params)
-    @post.save
-    redirect_to posts_path 
+    if @post.save
+      redirect_to posts_path 
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -27,8 +30,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if current_user.id == @post.user_id
-      @post.update(post_params)
-      redirect_to posts_path
+      if @post.update(post_params)
+        redirect_to posts_path
+      else
+        render 'edit'
+      end
     else
       redirect_to posts_path
     end

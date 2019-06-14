@@ -3,7 +3,18 @@
 <p><%= image_tag @post1.image.url, class: "mw-100" %></p>
 <p>コメント</p>
 <%= form_for([@post1, @post1.comments.build]) do |f| %>
-  <p><%= f.text_field :body, placeholder: "コメントを入力してください。", class: "form-control" %></p>
+  <p>
+    <%= f.text_field :body, placeholder: "コメントを入力してください。", class: "form-control #{@comment.errors.messages[:body].any? ? 'is-invalid' : ''}" %>
+    <% if @comment.errors.messages[:body].any? %>
+      <% @comment.errors.messages[:body].each do |error| %>
+        <div>
+          <small class="text-danger font-weight-bold">
+            <%= error %>
+          </small>
+        </div>
+      <% end %>
+    <% end %>
+  </p>
   <p><%= f.submit "コメントする", class: "btn btn-primary" %></p>
 <% end %>
 <% if @post2.comments.any? %>
