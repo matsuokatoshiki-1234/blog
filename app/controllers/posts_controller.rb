@@ -17,8 +17,10 @@ class PostsController < ApplicationController
   def create
     @post = User.find(current_user.id).posts.new(post_params)
     if @post.save
+      flash[:success] = "記事の作成に成功しました。"
       redirect_to posts_path 
     else
+      flash[:danger] = "記事の作成に失敗しました。"
       render 'new'
     end
   end
@@ -31,11 +33,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if current_user.id == @post.user_id
       if @post.update(post_params)
+        flash[:success] = "記事の更新に成功しました。"
         redirect_to posts_path
       else
+        flash[:danger] = "記事の更新に失敗しました。"
         render 'edit'
       end
     else
+      flash[:danger] = "他のユーザーの記事を更新することはできません。"
       redirect_to posts_path
     end
   end
@@ -43,9 +48,15 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if current_user.id == @post.user_id
-      @post.delete()
-      redirect_to posts_path
+      if @post.destroy
+        flash[:success] = "記事の削除に成功しました。"
+        redirect_to posts_path
+      else
+        flash[:danger] = "記事の削除に失敗しました。"
+        redirect_to posts_path
+      end
     else
+      flash[:danger] = "他のユーザーの記事を削除することはできません。"
       redirect_to posts_path
     end
   end

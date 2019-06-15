@@ -39,6 +39,16 @@
       </div> 
     </nav>
     <div class="container bg-white rounded-lg p-3">
+      <% if flash[:success] != nil %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:success] %>
+        </div>
+      <% end %>
+      <% if flash[:danger] != nil %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:danger] %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
