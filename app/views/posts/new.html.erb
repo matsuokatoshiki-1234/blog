@@ -29,6 +29,7 @@
   <div class="form-group">
     <%= f.label :image, "画像" %>
     <%= f.file_field :image, class: "form-control-file" %>
+    <%= f.hidden_field :image_cache %>
     <% if @post.errors.full_messages_for(:image).any? %>
       <% @post.errors.full_messages_for(:image).each do |error| %>
         <div>
