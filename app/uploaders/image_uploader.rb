@@ -10,6 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
+    return '../test/fixtures/files/uploads/image' if Rails.env.test?
     "uploads/image/post"
   end
 
@@ -45,12 +46,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  def size_range
-    1..5.megabytes
-  end
-
-  def extension_whitelist
-    %w(jpg jpeg gif png)
+  def cache_dir
+    return '../test/fixtures/files/uploads/tmp' if Rails.env.test?
+    "uploads/tmp"
   end
 
   def filename
