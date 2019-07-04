@@ -4,64 +4,64 @@ comment_one:
   id: 1
   user_id: 1
   post_id: 1
-  body: コメントです。
+  body: コメント1です。
 comment_two:
   id: 2
   user_id: 1
   post_id: 2
-  body: コメントです。
+  body: コメント2です。
 comment_three:
   id: 3
   user_id: 1
   post_id: 3
-  body: コメントです。
+  body: コメント3です。
 comment_four:
   id: 4
   user_id: 1
   post_id: 4
-  body: コメントです。
+  body: コメント4です。
 comment_five:
   id: 5
   user_id: 1
   post_id: 5
-  body: コメントです。
+  body: コメント5です。
 comment_six:
   id: 6
   user_id: 1
   post_id: 6
-  body: コメントです。
+  body: コメント6です。
 comment_seven:
   id: 7
   user_id: 1
   post_id: 7
-  body: コメントです。
+  body: コメント7です。
 comment_eight:
   id: 8
   user_id: 1
   post_id: 8
-  body: コメントです。
+  body: コメント8です。
 comment_nine:
   id: 9
   user_id: 1
   post_id: 9
-  body: コメントです。
+  body: コメント9です。
 comment_ten:
   id: 10
   user_id: 1
   post_id: 10
-  body: コメントです。
+  body: コメント10です。
 comment_eleven:
   id: 11
   user_id: 1
   post_id: 11
-  body: コメントです。
+  body: コメント11です。
 comment_twelve:
   id: 12
   user_id: 2
   post_id: 12
-  body: コメントです。
+  body: コメント12です。
 comment_thirteen:
   id: 13
   user_id: 2
   post_id: 13
-  body: コメントです。
+  body: コメント13です。
