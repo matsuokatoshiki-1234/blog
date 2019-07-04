@@ -197,7 +197,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     updated_post = Post.find(@post_user1.id)
     assert_not_equal(@post_user1.title, updated_post.title, '更新されていない')
     assert_not_equal(@post_user1.body, updated_post.body, '更新されていない')
-    assert_not_equal(@post_user1.image, updated_post.image, '更新されていない')
+    assert_not_equal(@post_user1.image.url, updated_post.image.url, '更新されていない')
     # 違うuserの記事の場合、リダイレクトされる
     @post_user2 = @user2.posts.sample
     patch post_path(id: @post_user2), params: { post: { title: '更新されたタイトルです。', body: '更新された内容です。', image: @img } }
