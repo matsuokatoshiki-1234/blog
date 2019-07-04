@@ -1,0 +1,16 @@
+<h2><%= @post1.title %></h2>
+<%= simple_format(@post1.body) %>
+<% if @post1.image.url %>
+  <p><%= image_tag @post1.image.url, class: "mw-100", alt: '記事の画像です。' %></p>
+<% end %>
+<% if @post2.comments.any? %>
+<p>コメント</p>
+<ul class="list-group list-group-flush">
+  <% @post2.comments.each do |t| %>
+  <li class="list-group-item">
+    <p><%= t.body %></p>
+    <%= link_to "削除する", post_comment_path(@post2, t), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-danger" %>
+  </li>
+  <% end %>
+</ul>
+<% end %>

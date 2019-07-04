@@ -1,0 +1,17 @@
+<p class="text-right"><%= link_to "記事を作成する", new_post_path, class: "btn btn-primary" %></p>
+<% if @posts.any? %>
+<ul class="list-group mb-3">
+<% @posts.each do |t| %>
+  <li class="list-group-item">
+    <p><%= link_to t.title, post_path(t.id) %></p>
+    <%= link_to "編集する", edit_post_path(t.id), class: "btn btn-info" %>
+    <%= link_to "削除する", post_path(t), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-danger"  %>
+  </li>
+<% end %>
+</ul>
+<%= paginate @posts %>
+<% else %>
+<p class="text-center">表示できる記事がありません。</p>
+<% end %>
+
+

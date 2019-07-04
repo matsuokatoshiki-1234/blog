@@ -1,0 +1,110 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+post_one:
+  id: 1
+  user_id: 1
+  title: 記事1のタイトルです。
+  body: 記事1の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:42"
+  updated_at: "2019-06-23 04:34:42"
+post_two:
+  id: 2
+  user_id: 1
+  title: 記事2のタイトルです。
+  body: 記事2の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:43"
+  updated_at: "2019-06-23 04:34:43"
+post_three:
+  id: 3
+  user_id: 1
+  title: 記事3のタイトルです。
+  body: 記事3の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:44"
+  updated_at: "2019-06-23 04:34:44"
+post_four:
+  id: 4
+  user_id: 1
+  title: 記事4のタイトルです。
+  body: 記事4の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:45"
+  updated_at: "2019-06-23 04:34:45"
+post_five:
+  id: 5
+  user_id: 1
+  title: 記事5のタイトルです。
+  body: 記事5の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:46"
+  updated_at: "2019-06-23 04:34:46"
+post_six:
+  id: 6
+  user_id: 1
+  title: 記事6のタイトルです。
+  body: 記事6の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:47"
+  updated_at: "2019-06-23 04:34:47"
+post_seven:
+  id: 7
+  user_id: 1
+  title: 記事7のタイトルです。
+  body: 記事7の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:48"
+  updated_at: "2019-06-23 04:34:48"
+post_eight:
+  id: 8
+  user_id: 1
+  title: 記事8のタイトルです。
+  body: 記事8の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:49"
+  updated_at: "2019-06-23 04:34:49"
+post_nine:
+  id: 9
+  user_id: 1
+  title: 記事9のタイトルです。
+  body: 記事9の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:50"
+  updated_at: "2019-06-23 04:34:50"
+post_ten:
+  id: 10
+  user_id: 1
+  title: 記事10のタイトルです。
+  body: 記事10の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:51"
+  updated_at: "2019-06-23 04:34:51"
+post_eleven:
+  id: 11
+  user_id: 1
+  title: 記事11のタイトルです。
+  body: 記事11の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:52"
+  updated_at: "2019-06-23 04:34:52"
+post_twelve:
+  id: 12
+  user_id: 2
+  title: 記事12のタイトルです。
+  body: 記事12の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:53"
+  updated_at: "2019-06-23 04:34:53"
+post_thirteen:
+  id: 13
+  user_id: 2
+  title: 記事13のタイトルです。
+  body: 記事13の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:54"
+  updated_at: "2019-06-23 04:34:54"

@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      comment: コメント
+      user: ユーザー
+    attributes:
+      post:
+        title: タイトル
+        body: 内容
+        image: 画像
+      comment:
+        body: コメント
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワードの確認
+  errors:
+    messages:
+      file_size_is_less_than_or_equal_to: のサイズは1~5MBまででお願いします。
+      allowed_file_content_types: の種類はpng,jpeg,jpg,gifでお願いします。
