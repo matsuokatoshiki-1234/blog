@@ -1,7 +1,7 @@
 <h2><%= @post1.title %></h2>
-<p><%= simple_format(@post1.body) %></p>
+<%= simple_format(@post1.body) %>
 <% if @post1.image.url %>
-  <p><%= image_tag @post1.image.url, class: "mw-100" %></p>
+  <p><%= image_tag @post1.image.url, class: "mw-100", alt: '記事の画像です。' %></p>
 <% end %>
 <% if @post2.comments.any? %>
 <p>コメント</p>

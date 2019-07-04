@@ -29,7 +29,7 @@
   <div class="form-group">
     <%= f.label :image, "画像" %>
     <% if @post.image.url %>
-      <p><%= image_tag @post.image.url, class: "mw-100" %></p>
+      <p><%= image_tag @post.image.url, class: "mw-100", alt: '記事の画像です。' %></p>
     <% end %>
     <%= f.file_field :image, class: "form-control-file" %>
     <%= f.hidden_field :image_cache %>
