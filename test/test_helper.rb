@@ -19,11 +19,9 @@ class ActiveSupport::TestCase
         time = item.created_at
       elsif i === array.length - 1
         return false if time < item.created_at
-
         return true
       else
         return false if time < item.created_at
-
         time = item.created_at
       end
     end
