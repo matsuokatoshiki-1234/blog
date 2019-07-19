@@ -108,3 +108,11 @@ post_thirteen:
   image: test_image_1.png
   created_at: "2019-06-23 04:34:54"
   updated_at: "2019-06-23 04:34:54"
+post_14:
+  id: 14
+  user_id: 1
+  title: 記事14のタイトルです。
+  body: 記事14の内容です。
+  image: test_image_1.png
+  created_at: "2019-06-23 04:34:55"
+  updated_at: "2019-06-23 04:34:55"
