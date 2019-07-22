@@ -1,17 +1,25 @@
 <p class="text-right"><%= link_to "記事を作成する", new_post_path, class: "btn btn-primary" %></p>
 <% if @posts.any? %>
-<ul class="list-group mb-3">
-<% @posts.each do |t| %>
-  <li class="list-group-item">
-    <p><%= link_to t.title, post_path(t.id) %></p>
-    <%= link_to "編集する", edit_post_path(t.id), class: "btn btn-info" %>
-    <%= link_to "削除する", post_path(t), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-danger"  %>
-  </li>
-<% end %>
-</ul>
+<div class="card-columns">
+  <% @posts.each do |t| %>
+  <div class="card">
+    <% if t.image.url %>
+    <%= image_tag t.image.url, class: "card-img-top", alt: t.title %>
+    <% else %>
+    <div class="text-light bg-dark py-5 text-center">NO PHOTO</div>
+    <% end %>
+    <div class="card-body">
+      <h2 class="card-title"><%=t.title%></h2>
+      <p class="card-text text-truncate"><small class="text-muted"><%=t.created_at.strftime('%Y年%m月%d日 %H:%M')%></small>
+      </p>
+      <%= link_to "詳細をみる", post_path(t.id), class: "btn btn-primary mb-1" %>
+      <%= link_to "編集する", edit_post_path(t.id), class: "btn btn-info mb-1" %>
+      <%= link_to "削除する", post_path(t), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-danger mb-1"  %>
+    </div>
+  </div>
+  <% end %>
+</div>
 <%= paginate @posts %>
 <% else %>
 <p class="text-center">表示できる記事がありません。</p>
 <% end %>
-
-

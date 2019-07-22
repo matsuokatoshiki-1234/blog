@@ -1,10 +1,22 @@
 <p class="text-right"><%= link_to "記事を作成する", new_post_path, class: "btn btn-primary" %></p>
 <p class="text-right"><%= link_to "マイページに移動する", posts_path, class: "btn btn-primary" %></p>
 <% if @posts.any? %>
-<div class="list-group mb-3">
-<% @posts.each do |t| %>
-  <%= link_to t.title, home_path(t.id), class: "list-group-item list-group-item-action" %>
-<% end %>
+<div class="card-columns">
+  <% @posts.each do |t| %>
+  <div class="card">
+    <% if t.image.url %>
+    <%= image_tag t.image.url, class: "card-img-top", alt: t.title %>
+    <% else %>
+    <div class="text-light bg-dark py-5 text-center">NO PHOTO</div>
+    <% end %>
+    <div class="card-body">
+      <h2 class="card-title text-truncate"><%=t.title%></h2>
+      <p class="card-text text-truncate"><small
+          class="text-muted"><%=t.user.name%><br><%=t.created_at.strftime('%Y年%m月%d日 %H:%M')%></small></p>
+      <%= link_to '詳細をみる', home_path(t.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
 </div>
 <%= paginate @posts %>
 <% else %>

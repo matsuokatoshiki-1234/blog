@@ -1,3 +1,5 @@
+<p class="text-right"><%= link_to "記事を作成する", new_post_path, class: "btn btn-primary" %></p>
+<p class="text-right"><%= link_to "マイページに移動する", posts_path, class: "btn btn-primary" %></p>
 <h2><%= @post1.title %></h2>
 <%= simple_format(@post1.body) %>
 <% if @post1.image.url %>
