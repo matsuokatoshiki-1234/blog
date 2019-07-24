@@ -16,6 +16,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワードの確認
+        remember_me: 次回から自動的にログイン
   errors:
     messages:
       file_size_is_less_than_or_equal_to: のサイズは1~5MBまででお願いします。

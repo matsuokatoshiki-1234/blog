@@ -86,4 +86,16 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to(new_user_session_path, 'リダイレクト先が正しくない')
   end
 
+  test 'commentが10件以上だった場合、失敗するか' do
+    @post_14 = posts(:post_14)
+    assert_not(10 > @post_14.comments.count, 'commentが10件以上ではない')
+    login_as(@user1)
+    post post_comments_path(@post_14), params: { comment: { body: 'コメントです。' } }
+    assert_response(:success, 'responseが正しくない')
+    assert_template('homes/show', 'テンプレートが正しくない')
+    assert_equal('コメントの作成に失敗しました。', flash[:danger], 'flashが正しくない')
+    @comment = assigns(:comment)
+    assert_equal('コメント数の上限に達したのでコメントできませんでした。', @comment.errors.full_messages[0], 'errorが正しくない')
+  end
+
 end

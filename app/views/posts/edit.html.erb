@@ -1,49 +1,50 @@
 <h2>編集</h2>
+<p class="text-right"><%= link_to "マイページに移動する", posts_path, class: "btn btn-primary" %></p>
 <%= form_for(@post) do |f| %>
-  <div class="form-group">
-    <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title, placeholder: "タイトルを入力してください。", class: "form-control #{@post.errors.full_messages_for(:title).any? ? 'is-invalid' : ''}" %>
-    <% if @post.errors.full_messages_for(:title).any? %>
-      <% @post.errors.full_messages_for(:title).each do |error| %>
-        <div>
-          <small class="text-danger font-weight-bold">
-            <%= error %>
-          </small>
-        </div>
-      <% end %>
-    <% end %>
+<div class="form-group">
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title, placeholder: "タイトルを入力してください。", class: "form-control #{@post.errors.full_messages_for(:title).any? ? 'is-invalid' : ''}" %>
+  <% if @post.errors.full_messages_for(:title).any? %>
+  <% @post.errors.full_messages_for(:title).each do |error| %>
+  <div>
+    <small class="text-danger font-weight-bold">
+      <%= error %>
+    </small>
   </div>
-  <div class="form-group">
-    <%= f.label :body, "内容" %>
-    <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.full_messages_for(:body).any? ? 'is-invalid' : ''}", size: "20x10" %>
-    <% if @post.errors.full_messages_for(:body).any? %>
-      <% @post.errors.full_messages_for(:body).each do |error| %>
-        <div>
-          <small class="text-danger font-weight-bold">
-            <%= error %>
-          </small>
-        </div>
-      <% end %>
-    <% end %>
+  <% end %>
+  <% end %>
+</div>
+<div class="form-group">
+  <%= f.label :image, "画像" %>
+  <% if @post.image.url %>
+  <p><%= image_tag @post.image.url, class: "mw-100", alt: '記事の画像です。' %></p>
+  <% end %>
+  <%= f.file_field :image, class: "form-control-file" %>
+  <%= f.hidden_field :image_cache %>
+  <% if @post.errors.full_messages_for(:image).any? %>
+  <% @post.errors.full_messages_for(:image).each do |error| %>
+  <div>
+    <small class="text-danger font-weight-bold">
+      <%= error %>
+    </small>
   </div>
-  <div class="form-group">
-    <%= f.label :image, "画像" %>
-    <% if @post.image.url %>
-      <p><%= image_tag @post.image.url, class: "mw-100", alt: '記事の画像です。' %></p>
-    <% end %>
-    <%= f.file_field :image, class: "form-control-file" %>
-    <%= f.hidden_field :image_cache %>
-    <% if @post.errors.full_messages_for(:image).any? %>
-      <% @post.errors.full_messages_for(:image).each do |error| %>
-        <div>
-          <small class="text-danger font-weight-bold">
-            <%= error %>
-          </small>
-        </div>
-      <% end %>
-    <% end %>
-　 </div>
-  <div class="form-group">
-    <%= f.submit "更新する", class: "btn btn-primary" %>
-　</div>
+  <% end %>
+  <% end %>
+</div>
+<div class="form-group">
+  <%= f.label :body, "内容" %>
+  <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.full_messages_for(:body).any? ? 'is-invalid' : ''}", size: "20x10" %>
+  <% if @post.errors.full_messages_for(:body).any? %>
+  <% @post.errors.full_messages_for(:body).each do |error| %>
+  <div>
+    <small class="text-danger font-weight-bold">
+      <%= error %>
+    </small>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+<div class="form-group">
+  <%= f.submit "更新する", class: "btn btn-primary" %>
+</div>
 <% end %>

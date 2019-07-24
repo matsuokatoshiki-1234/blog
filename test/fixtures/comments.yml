@@ -65,3 +65,10 @@ comment_thirteen:
   user_id: 2
   post_id: 13
   body: コメント13です。
+<% for i in 1..10 do %>
+comment_<%= i %>:
+  id: <%= i + 13 %>
+  user_id: 1
+  post_id: 14
+  body: <%= "コメント#{i + 13}です。" %>
+<% end %>

@@ -40,4 +40,13 @@ class CommentTest < ActiveSupport::TestCase
     assert_equal(@comment.errors.full_messages[0], 'コメントは200文字以内で入力してください' ,'errorが正しくない')
   end
 
+  test "commentが10件以上だった場合、保存に失敗するか" do
+    @post = posts(:post_14)
+    assert_not(10 > @post.comments.count, 'commentが10件以上ではない')
+    @comment = @post.comments.new(body: 'コメントです。')
+    @comment.user = @user
+    assert_not(@comment.save, '保存に成功している。')
+    assert_equal(@comment.errors.full_messages[0], 'コメント数の上限に達したのでコメントできませんでした。' ,'errorが正しくない')
+  end
+
 end
