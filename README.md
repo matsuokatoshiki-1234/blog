@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ruby 2.6.1  
+Rails 5.2.3
 
-Things you may want to cover:
+使用したGem
+* devise
+* carrierwave
+* kaminari
+* rails-i18n
+* file_validators
+* therubyracer
+* rails-controller-testing
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+テスト用のアカウントです。  
+メールアドレス : test.knowledge.free.blog.tk@gmail.com  
+パスワード : tjuoomAU
