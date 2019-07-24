@@ -15,19 +15,6 @@
   <% end %>
 </div>
 <div class="form-group">
-  <%= f.label :body, "内容" %>
-  <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.full_messages_for(:body).any? ? 'is-invalid' : ''}", size: "20x10" %>
-  <% if @post.errors.full_messages_for(:body).any? %>
-  <% @post.errors.full_messages_for(:body).each do |error| %>
-  <div>
-    <small class="text-danger font-weight-bold">
-      <%= error %>
-    </small>
-  </div>
-  <% end %>
-  <% end %>
-</div>
-<div class="form-group">
   <%= f.label :image, "画像" %>
   <% if @post.image.url %>
   <p><%= image_tag @post.image.url, class: "mw-100", alt: '記事の画像です。' %></p>
@@ -43,8 +30,21 @@
   </div>
   <% end %>
   <% end %>
-  　 </div>
+</div>
+<div class="form-group">
+  <%= f.label :body, "内容" %>
+  <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.full_messages_for(:body).any? ? 'is-invalid' : ''}", size: "20x10" %>
+  <% if @post.errors.full_messages_for(:body).any? %>
+  <% @post.errors.full_messages_for(:body).each do |error| %>
+  <div>
+    <small class="text-danger font-weight-bold">
+      <%= error %>
+    </small>
+  </div>
+  <% end %>
+  <% end %>
+</div>
 <div class="form-group">
   <%= f.submit "更新する", class: "btn btn-primary" %>
-  　</div>
+</div>
 <% end %>

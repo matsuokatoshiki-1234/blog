@@ -15,6 +15,20 @@
   <% end %>
 </div>
 <div class="form-group">
+  <%= f.label :image, "画像" %>
+  <%= f.file_field :image, class: "form-control-file" %>
+  <%= f.hidden_field :image_cache %>
+  <% if @post.errors.full_messages_for(:image).any? %>
+  <% @post.errors.full_messages_for(:image).each do |error| %>
+  <div>
+    <small class="text-danger font-weight-bold">
+      <%= error %>
+    </small>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+<div class="form-group">
   <%= f.label :body, "内容" %>
   <%= f.text_area :body, placeholder: "内容を入力してください。", class: "form-control #{@post.errors.full_messages_for(:body).any? ? 'is-invalid' : ''}", size: "20x10" %>
   <% if @post.errors.full_messages_for(:body).any? %>
@@ -28,20 +42,6 @@
   <% end %>
 </div>
 <div class="form-group">
-  <%= f.label :image, "画像" %>
-  <%= f.file_field :image, class: "form-control-file" %>
-  <%= f.hidden_field :image_cache %>
-  <% if @post.errors.full_messages_for(:image).any? %>
-  <% @post.errors.full_messages_for(:image).each do |error| %>
-  <div>
-    <small class="text-danger font-weight-bold">
-      <%= error %>
-    </small>
-  </div>
-  <% end %>
-  <% end %>
-  　 </div>
-<div class="form-group">
   <%= f.submit "投稿する", class: "btn btn-primary" %>
-  　</div>
+</div>
 <% end %>
