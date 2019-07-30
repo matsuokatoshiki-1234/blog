@@ -10,7 +10,7 @@
     <div class="text-light bg-dark py-5 text-center">NO PHOTO</div>
     <% end %>
     <div class="card-body">
-      <h2 class="card-title text-truncate"><%=t.title%></h2>
+      <h2 class="card-title h5 text-truncate"><%=t.title%></h2>
       <p class="card-text text-truncate"><small
           class="text-muted"><%=t.user.name%><br><%=t.created_at.strftime('%Y年%m月%d日 %H:%M')%></small></p>
       <%= link_to '詳細をみる', home_path(t.id), class: "btn btn-primary" %>
