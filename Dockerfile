@@ -1,7 +1,7 @@
-FROM ruby:2.6.4-buster
+FROM ruby:2.6.1-stretch
 
 RUN apt-get update \
-    && apt-get install -y default-mysql-client
+    && apt-get install -y mysql-client
 
 WORKDIR /blog
 
