@@ -1,0 +1,21 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:8.0.17
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - "./mysql-data:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  blog:
+    build: .
+    volumes:
+      - ".:/blog"
+    ports:
+      - "3000:3000"
+    tty: true
+    depends_on:
+      - mysql
+    entrypoint: ./wait-for-it.sh mysql
+    working_dir: "/blog"
+    command: "rails s -b 0.0.0.0"
