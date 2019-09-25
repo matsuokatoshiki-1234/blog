@@ -42,6 +42,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'file_validators'
 gem 'therubyracer'
+gem 'rename'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
