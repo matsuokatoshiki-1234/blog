@@ -3,9 +3,21 @@
 URL : [knowledge-free-blog.tk](https://knowledge-free-blog.tk/)
 
 ruby 2.6.1  
-Rails 5.2.3
+Rails 5.2.3  
+Docker 19.03.2  
+docker-compose 1.24.1  
 
-使用したGem
+## Dockerでの起動方法  
+```
+git clone https://github.com/matsuokatoshiki-1234/blog.git
+cd blog
+docker-compose build
+docker-compose run blog bin/rake db:create db:migrate
+docker-compose up
+```
+localhost:3000でアクセスできます。
+
+## 使用したGem
 * devise
 * carrierwave
 * kaminari
@@ -18,7 +30,7 @@ Rails 5.2.3
 メールアドレス : test.knowledge.free.blog.tk@gmail.com  
 パスワード : tjuoomAU
 
-機能
+## 機能
 * ログイン
 * 画像アップロード
 * ページネーション
